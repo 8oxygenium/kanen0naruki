@@ -13,7 +13,7 @@
   --gold:     #d9b25c;
   --gold-2:   #b8923f;
   --gold-deep:#8a6a25;
-  --jade:     #82bba6;   /* 交換ポイント／確定／EXP：青銅の緑青色で金と区別 */
+  --jade:     #82bba6;   /* 学習ポイント／確定／EXP：青銅の緑青色で金と区別 */
   --danger:   #d2715f;
   --line:     #574627;
   --radius:   6px;
@@ -206,6 +206,36 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 600; letter-spacing: .0
   color: var(--ink-dim); background: var(--panel);
   border: 1px dashed var(--line); border-radius: var(--radius);
 }
+
+/* ---------- 読み物一覧 / クイズ一覧 ---------- */
+.art-list { display: flex; flex-direction: column; gap: 12px; }
+.art-card {
+  display: block; background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 16px; color: var(--ink);
+}
+.art-card:hover { border-color: var(--gold); text-decoration: none; }
+.art-card .art-no { font-family: var(--font-head); color: var(--gold); font-size: 12px; letter-spacing: .12em; }
+.art-card h3 { margin: 4px 0 6px; font-size: 17px; color: var(--ink); }
+.art-card p { margin: 0; font-size: 13px; color: var(--ink-dim); line-height: 1.7; }
+
+/* 記事ページ内のメタ・戻る導線 */
+.art-meta { color: var(--ink-dim); font-size: 13px; margin: 0 0 6px; }
+.art-back { display: inline-block; margin-top: 8px; font-size: 14px; }
+.art-note {
+  margin: 22px 0 0; padding: 12px 14px; font-size: 13px; line-height: 1.7;
+  color: var(--ink-dim); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+}
+
+/* クイズ */
+.quiz-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+.quiz-card + .quiz-card { margin-top: 12px; }
+.quiz-q { font-size: 15px; margin: 0 0 10px; }
+.quiz-card details { border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 6px; }
+.quiz-card summary { cursor: pointer; color: var(--gold); font-size: 14px; list-style: none; }
+.quiz-card summary::-webkit-details-marker { display: none; }
+.quiz-card summary::before { content: "▸ "; }
+.quiz-card details[open] summary::before { content: "▾ "; }
+.quiz-card .quiz-a { font-size: 14px; color: var(--ink-dim); margin: 8px 0 0; }
 
 /* ---------- フッター ---------- */
 .q-foot { margin-top: 10px; padding: 26px 0 34px; border-top: 1px solid var(--line); background: var(--panel); }

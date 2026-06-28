@@ -42,29 +42,28 @@
 window.QUEST_DEMO = {
   profile: { name: "なる木の旅人", job: "冒険者", level: 3, expPercent: 62 },
 
-  /* ゲーム内ゴールド（交換不可）と 交換ポイント（条件付き交換可）は別台帳 */
+  /* ゲーム内ゴールド（交換不可）と 学習ポイント（学びの進捗・現時点で交換不可）は別ログ */
   goldBalance: 1240,
 
-  /* 交換ポイント台帳。balance はクライアントで合計してはいけない値ではなく、
-     サーバ確定値を表示する想定（ここでは参考表示）。 */
+  /* 学習ログ（学習ポイントの履歴）。balance はサーバ確定値を表示する想定（ここでは参考表示）。
+     学習ポイントは学びの進捗を表すゲーム内の記録で、現金・商品との交換は現時点では提供しない。 */
   pointLedger: [
-    { date: "06-28", reason: "デイリーログイン", delta: 1,   status: "確定" },
-    { date: "06-28", reason: "今日のクイズ 正解", delta: 3,  status: "確定" },
-    { date: "06-28", reason: "記事チェック",       delta: 1,  status: "確定" },
-    { date: "06-27", reason: "無料登録ミッション", delta: 300, status: "保留" },
-    { date: "06-25", reason: "無料登録ミッション", delta: 300, status: "確定" },
-    { date: "06-20", reason: "ギフト交換 申請",   delta: -500, status: "申請中" },
+    { date: "06-28", reason: "デイリーログイン",       delta: 1,   status: "確定" },
+    { date: "06-28", reason: "今日のクイズ 正解",       delta: 3,  status: "確定" },
+    { date: "06-28", reason: "記事チェック（読書クエスト）", delta: 1, status: "確定" },
+    { date: "06-27", reason: "今日のクイズ 正解",       delta: 2,  status: "確定" },
+    { date: "06-26", reason: "デイリーログイン",       delta: 1,  status: "確定" },
+    { date: "06-20", reason: "将来の交換構想（イメージ）", delta: -500, status: "構想" },
   ],
 
   missions: [
-    { key: "login",  label: "毎日ログイン",        reward: "+1P",      status: "確定" },
-    { key: "quiz",   label: "今日のクイズ",        reward: "+1〜3P",   status: "確定" },
-    { key: "read",   label: "記事を1本チェック",   reward: "+1P",      status: "確定" },
-    { key: "signup", label: "無料登録ミッション",  reward: "+300P",    status: "保留" },
-    { key: "dungeon",label: "ダンジョン1回探索",   reward: "ゴールド",  status: "交換不可" },
+    { key: "login",  label: "毎日ログイン",        reward: "+1P",     status: "確定" },
+    { key: "quiz",   label: "今日のクイズ",        reward: "+1〜3P",  status: "確定" },
+    { key: "read",   label: "記事を1本チェック",   reward: "+1P",     status: "確定" },
+    { key: "dungeon",label: "ダンジョン1回探索",   reward: "ゴールド", status: "交換不可" },
   ],
 
   rewards: [
-    { name: "ギフト交換（準備中）", cost: 500, note: "手動承認・最低交換額あり" },
+    { name: "将来の交換構想（準備中）", cost: 500, note: "構想段階・現時点では交換不可" },
   ],
 };
